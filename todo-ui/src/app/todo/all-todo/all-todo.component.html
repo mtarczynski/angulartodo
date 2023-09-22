@@ -14,27 +14,38 @@
                 <h5>Todo</h5>
               </div>
             </div>
-            <ul class="list-group">
-              <li class="list-group-item text-center" *ngFor="let item of todo">
-                <h5>{{ item.name }}</h5>
-                <p>Opis: {{ item.description }}</p>
-                <div class="card-body">
-                  <a
-                    class="btn btn-primary"
-                    [routerLink]="['edit-todo', item._id]"
-                    >Edit</a
-                  >
-                  |
-                  <button
-                    type="button"
-                    class="btn btn-danger"
-                    (click)="openDeletePopup(item._id)"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </li>
-            </ul>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of todo">
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.description }}</td>
+                  <td>
+                    <a
+                      class="btn btn-primary"
+                      [routerLink]="['edit-todo', item._id]"
+                      >Edit</a
+                    >
+                  </td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="openDeletePopup(item._id)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
