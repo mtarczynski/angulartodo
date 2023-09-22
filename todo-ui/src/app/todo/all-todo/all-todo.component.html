@@ -1,9 +1,75 @@
-<p>all-todo works!</p>
-<div class="containter mt-2">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col" *ngFor="let item of todo">
-            <h5>{{item.name}}</h5>
-            <p>Opis: {{item.description}}</p>
+<section style="background-color: #b5defd">
+  <div class="container py-5 h-80">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 15px">
+          <div class="card-body p-1">
+            <div class="row justify-content-md-center">
+              <div class="col col-lg-2">
+                <a class="btn btn-primary btn-sm" routerLink="/add-todo"
+                  >Create New</a
+                >
+              </div>
+              <div class="col col-lg-2">
+                <h5>Todo</h5>
+              </div>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item text-center" *ngFor="let item of todo">
+                <h5>{{ item.name }}</h5>
+                <p>Opis: {{ item.description }}</p>
+                <div class="card-body">
+                  <a
+                    class="btn btn-primary"
+                    [routerLink]="['edit-todo', item._id]"
+                    >Edit</a
+                  >
+                  |
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="openDeletePopup(item._id)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Warning</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are you sure to delete the item?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-danger" (click)="delete()">
+          Confirm Delete
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
