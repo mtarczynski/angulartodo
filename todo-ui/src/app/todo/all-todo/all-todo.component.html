@@ -1,0 +1,9 @@
+<p>all-todo works!</p>
+<div class="containter mt-2">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let item of todo">
+            <h5>{{item.name}}</h5>
+            <p>Opis: {{item.description}}</p>
+        </div>
+    </div>
+</div>
