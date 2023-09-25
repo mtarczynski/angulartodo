@@ -28,4 +28,8 @@ export class TodoService {
   delete(id: string) {
     return this.http.delete(`http://localhost:3000/todo/${id}`);
   }
+
+  logout() {
+    
+  }
 }

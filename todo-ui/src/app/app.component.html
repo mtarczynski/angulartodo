@@ -1,13 +1,28 @@
-<nav class="navbar navbar-expand-lg bg-primary ">
+<nav class="navbar navbar-expand-lg bg-primary">
   <div class="container justify-content-center">
-    <a class="navbar-brand mb-0 h1 text-light" href="#"><i class="bi bi-check2-all"></i>
+    <a class="navbar-brand mb-0 h1 text-light" href="#"
+      ><i class="bi bi-check2-all"></i>
       Todo
     </a>
-    <form class="form-inline">
-      <button class="btn btn-sm btn-outline-light" type="button">Logout</button>
-    </form>
+    <div>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="false">
+        <li class="nav-item">
+          <a routerLink="/login" class="btn btn-sm btn-outline-light">Login</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/register" class="btn btn-sm btn-outline-light"
+            >Register</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="true">
+        <li class="nav-item">
+          <a routerLink="/login" class="btn btn-sm btn-outline-light">Logout</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  
 </nav>
 <router-outlet></router-outlet>
 <footer class="text-center fixed-bottom py-1 my-2 border-top">

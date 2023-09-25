@@ -1,0 +1,43 @@
+<section style="background-color: #b5defd">
+  <div class="container py-5 h-80">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-6">
+        <div class="card" style="border-radius: 15px">
+          <div class="card-body p-3">
+            <div class="container mt-2">
+              <legend>Please register</legend>
+              <form [formGroup]="form" (submit)="submit()">
+                <input
+                  formControlName="name"
+                  class="form-control mb-3"
+                  placeholder="Name"
+                  required
+                />
+
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control mb-3"
+                  placeholder="Email"
+                  required
+                />
+
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="form-control mb-3"
+                  placeholder="Password"
+                  required
+                />
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
