@@ -5,7 +5,7 @@ export type TodoCollectionDocument = todoCollection & Document;
 
 @Schema({ collection: 'todoCollection' })
 export class todoCollection {
-  @Prop()
+  @Prop({required: true})
   name: string;
 
   @Prop()

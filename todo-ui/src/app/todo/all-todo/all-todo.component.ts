@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { Todo } from '../todo';
+import { CreateOrUpdateTodo } from '../create-or-update-todo';
+import { ActivatedRoute, Router } from '@angular/router';
 
 declare var window:any;
 
@@ -11,11 +13,23 @@ declare var window:any;
 })
 export class AllTodoComponent implements OnInit {
 
-  constructor(private todoService:TodoService) {}
+  constructor(private todoService:TodoService, private route:ActivatedRoute, private router:Router) {}
 
   todo:Todo[] = [];
   deleteModal:any;
   itemToDelete:string = '';
+
+  statusModal:any;
+  itemToComplete:boolean = false;
+
+  itemId:string = '';
+  isDone: boolean = false;
+
+  todoChange:CreateOrUpdateTodo = {
+    name: '',
+    description: '',
+    isDone: false,
+  }
 
   ngOnInit():void {
     this.deleteModal = new window.bootstrap.Modal(
@@ -43,4 +57,7 @@ export class AllTodoComponent implements OnInit {
     })
   }
 
+  complete() {
+    this.todoChange.isDone = !this.todoChange.isDone;
+  }
 }

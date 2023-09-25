@@ -45,4 +45,8 @@ export class EditTodoComponent implements OnInit {
         this.router.navigate(['/']);
       });
   }
+
+  back(): void {
+    this.router.navigate(['/']);
+  }
 }
